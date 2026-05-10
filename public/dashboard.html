@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Mood Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="checkAuthAndLoadData()">
+    <nav>
+        <h2>🎭 Mood Management</h2>
+        <div>
+            <a href="settings.html">Settings</a>
+            <button onclick="logout()">Logout</button>
+        </div>
+    </nav>
+    <div class="container dashboard-grid">
+        <div class="card full-width" style="padding: 0;">
+            <p id="quote-display" class="quote-text">Loading daily inspiration...</p>
+        </div>
+        <div class="card">
+            <h3>🎭 How are you feeling?</h3>
+            <select id="mood-select">
+                <option value="Happy 😊">Happy 😊</option>
+                <option value="Calm 😌">Calm 😌</option>
+                <option value="Sad 😢">Sad 😢</option>
+                <option value="Stressed 😫">Stressed 😫</option>
+                <option value="Angry 😠">Angry 😠</option>
+            </select>
+            <button onclick="saveMood()">Log Mood</button>
+            <h4 style="margin-top: 20px; color: var(--text-muted);">Recent Moods</h4>
+            <ul id="mood-list"></ul>
+        </div>
+        <div class="card">
+            <h3>📝 Quick Notes</h3>
+            <textarea id="note-input" rows="3" placeholder="What's on your mind?"></textarea>
+            <button onclick="saveNote()">Save Note</button>
+            <h4 style="margin-top: 20px; color: var(--text-muted);">Saved Notes</h4>
+            <ul id="note-list"></ul>
+        </div>
+        <div class="card full-width">
+            <h3>🎵 Find a Song to match your vibe</h3>
+            <div style="display: flex; gap: 10px;">
+                <input type="text" id="song-query" placeholder="Search for a track or artist..."
+                    style="margin-bottom: 0;">
+                <button onclick="searchSong()" style="width: 120px;">Search</button>
+            </div>
+            <ul id="song-results"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;"></ul>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>

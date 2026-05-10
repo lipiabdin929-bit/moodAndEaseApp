@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | Mood Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="checkAuthAndLoadData()">
+    <nav>
+        <h2>🎭 Mood Management Settings</h2>
+        <div>
+            <a href="dashboard.html">Back to Dashboard</a>
+            <button onclick="logout()">Logout</button>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="card" style="max-width: 600px; margin: 0 auto;">
+            <h3>👤 Account Profile</h3>
+            <div
+                style="padding: 15px; background: var(--bg-color); border-radius: var(--radius); margin-top: 15px; margin-bottom: 30px;">
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Logged in as</p>
+                <p><strong id="settings-username" style="font-size: 1.2rem;">...</strong></p>
+            </div>
+
+            <h3>🎨 App Preferences</h3>
+            <div style="margin-top: 15px; margin-bottom: 30px;">
+                <label style="color: var(--text-muted); font-size: 0.9rem;">Theme</label>
+                <select id="theme-select" onchange="updateTheme()">
+                    <option value="light">Light Mode</option>
+                    <option value="dark">Dark Mode</option>
+                </select>
+            </div>
+
+            <h3>💾 Data Management</h3>
+            <div style="margin-top: 15px; margin-bottom: 30px;">
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 10px;">Download a copy of all your
+                    saved moods and notes.</p>
+                <button onclick="exportData()" style="margin-bottom: 15px; background-color: var(--text-main);">📥
+                    Export My Data (JSON)</button>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 10px;">Wipe your mood board clean,
+                    but keep your account.</p>
+                <button onclick="clearHistory()" class="btn-danger" style="margin-bottom: 15px;">🗑️ Clear
+                    History</button>
+            </div>
+            <hr>
+            <h3>🔒 Account & Security</h3>
+            <div style="margin-top: 15px;">
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 10px;">Permanently delete your
+                    account and all associated data.</p>
+                <button onclick="deleteAccount()" class="btn-danger">🚨 Delete Account</button>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
